@@ -1,0 +1,13 @@
+# Use the official MySQL base image
+FROM mysql:latest
+
+# Set environment variables for MySQL
+ENV MYSQL_ROOT_PASSWORD=example
+ENV MYSQL_DATABASE=crudapp
+
+# Add initialization script
+COPY ./init.sql /docker-entrypoint-initdb.d/
+
+# Expose the MySQL port
+EXPOSE 3306
+
